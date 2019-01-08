@@ -2,22 +2,21 @@ import { ERROR_DATA, MINUTE_PRINT } from "../../types/calculator/CalculatorTypes
 
 import * as Calculate from './calculatorActions';
 
-export const verifyInputErrors = (filamentUsage, hourPrint, minutePrint) => {
+export const verifyInputErrors = (filamentUsage, hourPrint, minutePrint, screenProps) => {
+
+let t = screenProps.t;
 
     if (isNaN(filamentUsage) || isNaN(hourPrint) || isNaN(minutePrint)) {
-        alert('Insira somente numeros nos campos');
-
         return ({
             type: ERROR_DATA,
-            payload: {}
+            payload: t('error:onlyNumbers')
         })
     }
-    if (minutePrint >= 60) {
-        alert('Verifique o valor dos minutos, insira um valor menor que 60!');
+    else if (minutePrint >= 60) {
         return dispatch => {
             dispatch({
                 type: ERROR_DATA,
-                payload: {}
+                payload: t('error:minutesHigh')
             })
             dispatch({
                 type: MINUTE_PRINT,
@@ -25,16 +24,24 @@ export const verifyInputErrors = (filamentUsage, hourPrint, minutePrint) => {
             })
         }
     }
-    if (filamentUsage === '' || hourPrint === '' || minutePrint === '') {
-        alert('Por gentileza, preencha todos os campos, se a impressão é de poucos minutos, coloque 0 na hora!');
-        return (
-            {
-                type: ERROR_DATA,
-                payload: {}
-            }
-        )
+    else if (filamentUsage === '') {
+        return dispatch => {
+            dispatch(
+                {
+                    type: ERROR_DATA,
+                    payload: t('error:addFilament')
+                }
+            )
+        }
     }
-
+    else if(hourPrint === '' && minutePrint === ''){
+        return dispatch => {
+            dispatch({
+                type: ERROR_DATA,
+                payload: t('error:addTime')
+            })
+        }
+    }
 }
 
 export const calculateAllPrice = (filamentUsage, hourPrint, minutePrint, ObjectData, filamentConfig, printerConfig, administrativeConfig, finishesConfig) => {
@@ -43,7 +50,7 @@ export const calculateAllPrice = (filamentUsage, hourPrint, minutePrint, ObjectD
 
     let { pricePound, typeFilament, diameterFilament, failureRate } = filamentConfig;
     let { wattsUsage, costKWh, lifeSpan, repairRate, printerValue, returnInvestiment, hourPerDay, dayPerMonth } = printerConfig;
-    let { administrativeCost, internetCost, modelingCost, othersCost, phoneCost, taxesCost } = administrativeConfig;
+    let { administrativeCost, internetCost, modelingCost, phoneCost, taxesCost } = administrativeConfig;
     let { inkCost, laborCost, otherCost, primerCost, varnishCost } = finishesConfig;
 
     filamentCost = Calculate.MaterialCost(pricePound, filamentUsage, diameterFilament, typeFilament);

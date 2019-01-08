@@ -109,5 +109,12 @@
         "title": "Calculadora de Custos 3D",
         "author": "Criado por JS 3D",
         "version": "Versão 1.0.0"
+    },
+    "error":{
+        "addFilament": "Por favor, adicione algum valor para o filamento",
+        "onlyNumbers": "Insira somente numeros nos campos",
+        "minutesHigh": "Verifique o valor dos minutos, insira um valor menor que 60!",
+        "addTime": "Por gentileza, algum valor para a hora ou para o minuto",
+        "noLine": "Não tem linhas para deletar, adicione alguma"
     }
 }

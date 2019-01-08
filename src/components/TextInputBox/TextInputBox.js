@@ -9,6 +9,9 @@ import styles from './styles'
 import { bindActionCreators } from 'redux';
 import {connect} from 'react-redux';
 
+/**
+ * TextInputBox is a View for the TextInputs in settings, integrating the Info Button
+ */
 class TextInputBox extends Component {
   render() {
     if (this.props.descriptionIcon === true) {

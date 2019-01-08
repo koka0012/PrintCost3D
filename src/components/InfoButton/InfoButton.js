@@ -8,10 +8,10 @@ import styles from './styles';
 
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 
+/**
+ * Info Button is used to open a Modal box with a description of a item in settings.
+ */
 class InfoButton extends Component {
-    constructor(props) {
-        super(props);
-    }
 
     render() {
         const { visibleInfoButton, titleInfoButton, textInfoButton, } = this.props.generalReducer;
@@ -24,7 +24,9 @@ class InfoButton extends Component {
 
                 style={styles.modal}
             >
-                <View style={{ backgroundColor: 'rgba(0,0,0,0.6)', flex: 1 }}>
+                <TouchableOpacity style={{ backgroundColor: 'rgba(0,0,0,0.6)', flex: 1 }}  
+                    onPress = {()=> this.props.CloseInfoButton()}
+                >
                     <View style={styles.container}>
                         <TouchableOpacity
                             onPress={() => this.props.CloseInfoButton()}
@@ -41,7 +43,7 @@ class InfoButton extends Component {
 
                         </View>
                     </View>
-                </View>
+                </TouchableOpacity>
             </Modal>
 
         );

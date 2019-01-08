@@ -5,6 +5,7 @@ import {
     CLOSE_CLEAR_BUTTON,
     VISIBLE_CLEAR_BUTTON
 } from '../types/generalTypes';
+import { ERROR_DATA } from '../types/calculator/CalculatorTypes';
 
 
 const INITIAL_STATE = {
@@ -33,7 +34,13 @@ export default generalReducer = (state = INITIAL_STATE, action) => {
         case CLOSE_CLEAR_BUTTON: return {
             ...state,
             visibleClearButton:action.payload
-        }
+        };
+        case ERROR_DATA: return (
+            alert(action.payload),
+            {
+                ...state
+            }
+        )
         default: return state;
     }
 }

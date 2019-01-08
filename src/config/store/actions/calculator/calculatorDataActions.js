@@ -1,6 +1,5 @@
 import {
-    FILAMENT_USAGE, HOUR_PRINT, MINUTE_PRINT, ADD_DATA, TOTAL_DATA, DELETE_TOTAL_DATA
-} from '../../types/calculator/CalculatorTypes';
+    FILAMENT_USAGE, HOUR_PRINT, MINUTE_PRINT, ADD_DATA, TOTAL_DATA, ERROR_DATA} from '../../types/calculator/CalculatorTypes';
 
 import { verifyInputErrors, calculateAllPrice, addTotal, deleteTotal } from './util';
 
@@ -45,7 +44,7 @@ export const ClearDataFlatList = (ObjectData, DataReducers) => {
 }
 
 
-export const DataFlatListChange = (LineData, ObjectData, ObjectReducers, type) => {
+export const DataFlatListChange = (LineData, ObjectData, ObjectReducers, screenProps, type) => {
     /*
         Obtendo os Reducers de configuração
     */
@@ -53,8 +52,6 @@ export const DataFlatListChange = (LineData, ObjectData, ObjectReducers, type) =
     let printerConfig = ObjectReducers.printerReducer;
     let administrativeConfig = ObjectReducers.administrativeReducer;
     let finishesConfig = ObjectReducers.finishesReducer;
-
-    let lineLenght = LineData.length;
 
     let { filamentUsage, hourPrint, minutePrint,
         totalFilamentUsage,
@@ -80,19 +77,19 @@ export const DataFlatListChange = (LineData, ObjectData, ObjectReducers, type) =
         valuePrintLine } = ObjectData;
 
 
+
+
     if (type === 'add') {
 
         for (i = 0; i < 2; i++) {
-            if (filamentUsage === '') {
-                filamentUsage = 0;
-            } else if (hourPrint === '') {
+            if (hourPrint === '' && minutePrint !== '') {
                 hourPrint = 0;
-            } else if (minutePrint === '') {
+            } else if (minutePrint === '' && hourPrint !== '') {
                 minutePrint = 0;
             }
         }
         if (minutePrint >= 60 || filamentUsage === '' || hourPrint === '' || minutePrint === '' || isNaN(filamentUsage) || isNaN(hourPrint) || isNaN(minutePrint)) {
-            return verifyInputErrors(filamentUsage, hourPrint, minutePrint);
+            return verifyInputErrors(filamentUsage, hourPrint, minutePrint, screenProps);
         }
 
         totalFilamentUsage += +filamentUsage;
@@ -122,6 +119,19 @@ export const DataFlatListChange = (LineData, ObjectData, ObjectReducers, type) =
     }
 
     else if (type === 'delete') {
+        
+        if(LineData.length === 0){
+            return dispatch => {
+                dispatch(
+                    {
+                        type: ERROR_DATA,
+                        payload: screenProps.t('error:noLine')
+                    }
+                    );
+
+            }
+            
+        }
 
         let { filamentUsageLine,
             hourPrintLine,
@@ -142,6 +152,8 @@ export const DataFlatListChange = (LineData, ObjectData, ObjectReducers, type) =
             totalAdministrationCost,
             totalROICost,
             totalValuePrint] = deleteTotal(ObjectData, filamentCost, energyCost, repairCost, failureCost, finishesCost, depreciationCost, administrationCost, ROICost, filamentUsageLine, hourPrintLine, minutePrintLine, valuePrintLine)
+
+            console.log(totalFilamentUsage)
     }
 
     return dispatch => {
@@ -150,9 +162,22 @@ export const DataFlatListChange = (LineData, ObjectData, ObjectReducers, type) =
                 {
                     type: ADD_DATA,
                     payload: { filamentUsageLine: filamentUsage, hourPrintLine: hourPrint, minutePrintLine: minutePrint, valuePrintLine: valuePrintLine }
-                }
+                }            
             );
+            dispatch({
+                type: FILAMENT_USAGE,
+                payload: ''
+            })
+            dispatch({
+                type: HOUR_PRINT,
+                payload: ''
+            })
+            dispatch({
+                type: MINUTE_PRINT,
+                payload: ''
+            })
         }
+
         dispatch({
             type: TOTAL_DATA,
             payload: { totalFilamentUsage: totalFilamentUsage, totalHourPrint: totalHourPrint, totalMinutePrint: totalMinutePrint, totalValuePrint: totalValuePrint, totalFilamentCost: totalFilamentCost, totalEnergyCost: totalEnergyCost, totalRepairCost: totalRepairCost, totalFailureCost: totalFailureCost, totalFinishesCost: totalFinishesCost, totalDepreciationCost: totalDepreciationCost, totalAdministrationCost: totalAdministrationCost, totalROICost: totalROICost }

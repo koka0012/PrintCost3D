@@ -18,7 +18,6 @@ const languageDetector = {
         const saveDataJSON = await AsyncStorage.getItem(STORAGE_KEY);
         const lng = (saveDataJSON) ? saveDataJSON: null;
         const selectLanguage = lng || locale;
-        console.log('detect - selectedLanguage', selectLanguage);
         callback(selectLanguage);
     },
     cacheUserLanguage: () => {}
@@ -29,7 +28,7 @@ i18n.use(languageDetector).use(reactI18nextModule).init({
     resources: { pt, en },
     ns: ['common'],
     defaultNS: 'common',
-    debug: true,
+    debug: false,
     
     interpolation: {
         escapeValue: false

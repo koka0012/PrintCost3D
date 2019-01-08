@@ -23,7 +23,6 @@ Redux and Actions Packages
 import * as calculatorDataActionsCreators from '../../config/store/actions/calculator/calculatorDataActions';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { verifyInputErrors } from "../../config/store/actions/calculator/util";
 
 
 
@@ -105,23 +104,22 @@ class calcHome extends Component {
             ])
         }
       },
-      { text: t('components:btn:lastLine'), onPress: () => { this._dataChange('delete'), console.log(this.props.calculatorDataReducer) } },
+      { text: t('components:btn:lastLine'), onPress: () => { this._dataChange('delete')} },
       { text: t('components:btn:cancel') }]
     )
 
   }
 
   _dataChange(type) {
-    let { ChangeFilamentUsage, ChangeHour, ChangeMinute, DataFlatListChange } = this.props.calculatorDataActions;
-    let { calculatorDataReducer, dataElementsReducer, configReducers } = this.props;
-    let { filamentUsage, hourPrint, minutePrint } = this.props.dataElementsReducer;
+
+    let { DataFlatListChange } = this.props.calculatorDataActions;
+    let { calculatorDataReducer, dataElementsReducer, configReducers, screenProps } = this.props;
 
     if (type === 'add') {
-
-      DataFlatListChange(calculatorDataReducer, dataElementsReducer, configReducers, 'add');
+      DataFlatListChange(calculatorDataReducer, dataElementsReducer, configReducers, screenProps, 'add');
 
     } else if (type === 'delete') {
-      DataFlatListChange(calculatorDataReducer, dataElementsReducer, configReducers, 'delete');
+      DataFlatListChange(calculatorDataReducer, dataElementsReducer, configReducers, screenProps, 'delete');
     }
   }
 
