@@ -1,0 +1,109 @@
+{
+    "configScreen": {
+        "titleConfig": "Configurações",
+        "filaments": {
+            "title": "Filamentos"
+        },
+        "printers": {
+            "title": "Impressoras",
+            "wattsUsage": "Watts Usados",
+            "costKWh": "Custo do KWh",
+            "lifespan": "Vida Útil",
+            "month": "Meses",
+            "year": "Anos",
+            "printerValue": "Custo da Impressora",
+            "ROI": "Retorno do Investimento",
+            "repairRate": "Taxa de Reparos",
+            "hourUsedPerDay": "Horas Usadas por Dia",
+            "dayPerMonth": "Dias por Mês"
+        },
+        "finishes": {
+            "title": "Acabamentos",
+            "primer": "Primer",
+            "ink": "Tinta",
+            "varnish": "Verniz",
+            "labor": "Trabalho",
+            "othersCosts": "Outros Custos"
+        },
+        "administrative": {
+            "title": "Administrativos",
+            "modeling": "Modelagem",
+            "phone": "Telefone",
+            "internet": "Internet",
+            "administrative": "Administrativo",
+            "taxes": "Taxas"
+        }
+    },
+    "calculatorScreen": {
+        "title": "Cost Calculator",
+        "filamentUsage": "Filamento Usado",
+        "hour": "Horas",
+        "minutes": "Minutos",
+        "subtotal": "Subtotal",
+        "totalCost": "Custo Total",
+        "totalTime": "Tempo Total",
+        "$": "$"
+    },
+    "detailScreen": {
+        "title": "Detalhes",
+        "filamentUsage": "Filamento Usado",
+        "hour": "Horas",
+        "minutes": "Minutos",
+        "typeCost": "Tipo de Custo",
+        "filamentCost": "Custo com Filamento",
+        "energyCost": "Custo com Energia",
+        "repairCost": "Custo com Reparos",
+        "failCost": "Custo com Falhas",
+        "finishesCost": "Custo com Acabamento",
+        "depreciationCost": "Custos de Depreciação",
+        "administrationCost": "Custos com Administração",
+        "ROICost": "Retorno de Investimento",
+        "totalCost": "Custo Total",
+        "$": "R$"
+    },
+    "components": {
+        "infoButton": {
+            "title": {
+                "primer": "Primer",
+                "ink": "Tinta",
+                "varnish": "Verniz",
+                "labor": "Trabalho",
+                "otherCost": "Outros Custos",
+                "modeling": "Modelagem",
+                "phone": "Telefone",
+                "internet": "Internet",
+                "administrative": "Administrativo",
+                "taxes": "Taxas",
+                "others": "Outros Custos"
+            },
+            "description": {
+                "primer": "Insira aqui o custo com primer, para a fixação da tinta na peça. Caso utilize um preço fixo, insira somente números, caso utilize uma porcentagem do Insira aqui o valor em números referente ao custo médio com primer ao longo do mês. O primer  é normalmente utilizado como base preparatória para metais, PET e vidro, podendo ser pintado posteriormente com tintas acrilicas, tinta fosca para artesanato e as *metal colors*. O Primer pode ser do tipo *liquido* ou *spray*.valor em cima do custo de impressão, insira um valor acompanhado de %, por exemplo: '30%', mas se não utilizar primer, deixe o campo em branco.",
+                "ink": "Insira aqui o custo médio com as tintas utilizadas na empresa, sejam elas de quaisquer origem. Tinta é o nome normalmente dado a uma família de produtos (líquidos, viscosos ou sólidos em pó) que, após aplicação sob a forma de uma fina camada, a um substrato se converte num filme sólido opaco. As tintas são usadas para proteger e dar cor a objetos ou superfícies. Na impressão 3D as mais utilizadas são as tintas acrílicas para artesanato, tintas em spray.",
+                "varnish": "Insira aqui o custo médio com o verniz utilizado na empresa, sejam eles de quaisquer origem. O Verniz, é uma mistura viscosa de substâncias naturais combinadas com a finalidade de obter-se uma película protetora de acabamento artístico contra umidade, intempéries ou outros malefícios. Sua matéria prima é obtida, geralmente de vegetais e a seiva deles, depois acrescentadas outras substâncias para seu brilho, dureza, secagem, maleabilidade para, posteriormente seu uso e comercialização. As resinas, então, são diluídas e misturadas a solventes como aguarrás, Thinner, Álcool,Terebentina, entre outros. Alguns vernizes contém pigmentos adicionados, para alterar a cor natural e obter o efeito satisfatório.",
+                "labor": "Insira aqui o custo que você tem com o trabalho manual realizado para fabricar suas peças. Pode ser o salario dos funcionários responsáveis por isso, ou caso você faça sozinho você irá inserir o custo do seu trabalho por mês, isso você define baseado em suas escolhas, caso deseje usar custo por hora, multiplique o valor por seu tempo de trabalho e pela quantia de dias trabalhados no mês. Por Exemplo: Se trabalho 8 horas por dia somente durante a semana, e minha hora é 5, o valor a inserir é  840 que equivale à 5 * 21 * 8. ",
+                "otherCost": "Se você tem algum outro custo mensal com o acabamento das peças, como por exemplo lixas, massa plástica, embalagens, plastico bolhas, ou materiais para entrega, insira-o aqui.",
+                "modeling": "Aqui é inserido o custo de modelagem para a peça, caso você tenha um funcionário responsável pela modelagem e ele tenha um salário fixo, deixe o valor do salário dele, caso contrário altere sempre que for fazer utilizar a modelagem.",
+                "phone": "Insira aqui o seu custo mensal com a companhia telefônica que você utiliza para a empresa.",
+                "internet": "Insira aqui o custo mensal com internet utilizado pela empresa.",
+                "administrative": "Insira aqui outros custos mensais administrativos, uma soma de todos eles, nestes sendo os salários, alugueis, entre outros.",
+                "taxes": "Insira aqui as taxas mensais que você possui, como MEI, PIS, COFINS, ISS, entre outros.",
+                "others": "Insira aqui quaisquer outro custo mensal que você possua para com a empresa."
+            }
+        },
+        "button": {
+            "add": "Adicionar",
+            "delete": "Deletar",
+            "yes": "Sim",
+            "no": "Não",
+            "cancel": "Cancelar",
+            "confirm": "Confirmar",
+            "all": "Tudo",
+            "lastLine": "Ultima Linha"
+        },
+        "clearList": {
+            "title": "Apagar Lista",
+            "text": "O que deseja apagar?",
+            "confirmText": "Você tem certeza disso? Todos os dados serão apagados!"
+        }
+    }
+}
