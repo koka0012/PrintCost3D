@@ -43,6 +43,7 @@ export const ClearDataFlatList = (ObjectData, DataReducers) => {
     ObjectData.totalFailureCost = 0
     ObjectData.totalFinishesCost = 0
     ObjectData.totalDepreciationCost = 0
+    ObjectData.totalAdministrationCost = 0
     ObjectData.totalROICost = 0
 }
 
