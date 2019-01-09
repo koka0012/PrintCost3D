@@ -39,6 +39,7 @@ ___________
 
 ### Equações
 ![](https://trello-attachments.s3.amazonaws.com/5b8819b32ef8b515fed48931/5c2f4f7c3550955b5271e23c/ca7394edfcd0f64e2738ed27ef48637c/image.png)
+
 A densidade é obtida utilizando o tipo de filamento:
 
 - d = 1.04 (ABS)

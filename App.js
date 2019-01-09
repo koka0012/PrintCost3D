@@ -4,22 +4,25 @@ import Routes from './src/config/routes';
 import { Provider } from 'react-redux';
 
 import store from './src/config/store';
-import NavigationService from './src/config/routes/NavigationService';
 import ReduxThunk from 'redux-thunk';
 import { createStore, applyMiddleware } from 'redux';
 import reducers from './src/config/store/reducers';
 import LoadingScreen from './src/scenes/loadingScreen';
+import NavigationService from './src/config/routes/NavigationService';
 
-import i18n from './src/config/locales'
-import { withNamespaces } from 'react-i18next'
+import i18n from './src/config/locales';
+import { withNamespaces } from 'react-i18next';
 
 
 // ref={navigatorRef => {
 //   NavigationService.setTopLevelNavigator(navigatorRef)
 // }}
 
-const WrappedStack = ({ t }) => <Routes screenProps={{ t }} 
+const WrappedStack = ({ t }) => <Routes screenProps={{ t }}
 
+  ref={navigatorRef => {
+    NavigationService.setTopLevelNavigator(navigatorRef);
+  }}
 />;
 const ReloadAppOnLanguageChange = withNamespaces('common', {
   bindI18n: 'languageChanged',
@@ -70,7 +73,8 @@ export default class App extends Component {
     }
     return (
       <Provider store={this.state.store}>
-        <ReloadAppOnLanguageChange />
+        <ReloadAppOnLanguageChange
+        />
       </Provider>
     );
   }

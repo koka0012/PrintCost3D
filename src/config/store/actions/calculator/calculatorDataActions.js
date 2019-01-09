@@ -5,6 +5,7 @@ import {
 import { verifyInputErrors, calculateAllPrice, addTotal, deleteTotal } from './util';
 import printer from '../../../../scenes/configurations/printer';
 
+import NavigationService from '../../../routes/NavigationService';
 
 export const ChangeFilamentUsage = (text) => ({
     type: FILAMENT_USAGE,
@@ -162,14 +163,15 @@ export const DataFlatListChange = (LineData, ObjectData, ObjectReducers, screenP
 
         }
         if (LineData.length === 1) {
+            console.log(NavigationService)
             return dispatch => {
                 dispatch({
                     type: '',
-                    payload: ClearDataFlatList(ObjectData,ObjectReducers)
-                }                        
-                )
+                    payload: (ClearDataFlatList(ObjectData, LineData),NavigationService.navigate('CalcHomeScreen', {}) )
+                        
+                })
             }
-        }else
+        }
         let { filamentUsageLine,
             hourPrintLine,
             minutePrintLine,
