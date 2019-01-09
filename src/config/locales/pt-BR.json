@@ -30,7 +30,7 @@
     },
     "calculatorScreen": {
         "title": "Calculadora de Custos",
-        "filamentUsage": "Filamento Usado",
+        "filamentUsage": "Filamento Usado (mm)",
         "hour": "Horas",
         "minutes": "Minutos",
         "subtotal": "Subtotal",
@@ -40,7 +40,7 @@
     },
     "detailScreen": {
         "title": "Detalhes",
-        "filamentUsage": "Filamento Usado",
+        "filamentUsage": "Filamento Usado (mm)",
         "hour": "Horas",
         "minutes": "Minutos",
         "typeCost": "Tipo de Custo",
@@ -65,7 +65,6 @@
                 "ink": "Tinta",
                 "varnish": "Verniz",
                 "labor": "Trabalho",
-                "otherCost": "Outros Custos",
                 "modeling": "Modelagem",
                 "phone": "Telefone",
                 "internet": "Internet",
@@ -114,7 +113,15 @@
         "addFilament": "Por favor, adicione algum valor para o filamento",
         "onlyNumbers": "Insira somente numeros nos campos",
         "minutesHigh": "Verifique o valor dos minutos, insira um valor menor que 60!",
-        "addTime": "Por gentileza, algum valor para a hora ou para o minuto",
-        "noLine": "Não tem linhas para deletar, adicione alguma"
+        "addTime": "Por gentileza, algum valor para a hora ou para o minuto.",
+        "noLine": "Não tem linhas para deletar, adicione alguma.",
+        "pricePound": "Adicione o custo do filamento nas Configurações.",
+        "printerValue": "Adicione o custo da impressora nas Configurações.",
+        "hourPerDay": "Adicione as horas que a impressora irá trabalhar por dia nas Configurações.",
+        "dayPerMonth": "Adicione quantos dias a impressora irá trabalhar por mês nas Configurações.",
+        "wattsUsage": "Adicione a quantia de Watts que a impressora consome nas Configurações.",
+        "costKWH": "Adicione o custo por KW Hora de sua região nas Configurações.",
+        "hourOrDay": "Verifique as horas impressas por dia ou os dias por mês, algum deles está muito alto"
+        
     }
 }

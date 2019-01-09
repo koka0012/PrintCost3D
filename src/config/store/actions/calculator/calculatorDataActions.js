@@ -1,7 +1,9 @@
 import {
-    FILAMENT_USAGE, HOUR_PRINT, MINUTE_PRINT, ADD_DATA, TOTAL_DATA, ERROR_DATA} from '../../types/calculator/CalculatorTypes';
+    FILAMENT_USAGE, HOUR_PRINT, MINUTE_PRINT, ADD_DATA, TOTAL_DATA, ERROR_DATA
+} from '../../types/calculator/CalculatorTypes';
 
 import { verifyInputErrors, calculateAllPrice, addTotal, deleteTotal } from './util';
+import printer from '../../../../scenes/configurations/printer';
 
 
 export const ChangeFilamentUsage = (text) => ({
@@ -76,7 +78,35 @@ export const DataFlatListChange = (LineData, ObjectData, ObjectReducers, screenP
         ROICost,
         valuePrintLine } = ObjectData;
 
+    for (let i = 0; i < 8; i++) {
+        let error = '';
+        if (Object.entries(printerConfig)[i][1] === '') {
+            error = Object.entries(printerConfig)[i][0]
+        }
+        if (i < 4) {
+            if (Object.entries(filamentConfig)[i][1] === '') {
+                error = Object.entries(filamentConfig)[i][0]
+            }
+        }
+        if (error !== '') {
+            return dispatch => {
+                dispatch({
+                    type: ERROR_DATA,
+                    payload: screenProps.t(`error:${error}`)
+                })
+            }
+        }
+    }
 
+
+    if (printerConfig.dayPerMonth > 30 || printerConfig.hourPerDay > 24) {
+        return dispatch => {
+            dispatch({
+                type: ERROR_DATA,
+                payload: screenProps.t(`error:hourOrDay`)
+            })
+        }
+    }
 
 
     if (type === 'add') {
@@ -94,7 +124,7 @@ export const DataFlatListChange = (LineData, ObjectData, ObjectReducers, screenP
 
         totalFilamentUsage += +filamentUsage;
         totalHourPrint += +hourPrint;
-        totalMinutePrint += +minutePrint;     
+        totalMinutePrint += +minutePrint;
 
         if (totalMinutePrint >= 60) {
             totalMinutePrint %= 60;
@@ -102,7 +132,6 @@ export const DataFlatListChange = (LineData, ObjectData, ObjectReducers, screenP
         }
 
         [filamentCost, energyCost, repairCost, failureCost, finishesCost, depreciationCost, administrationCost, ROICost, valuePrintLine] = calculateAllPrice(filamentUsage, hourPrint, minutePrint, ObjectData, filamentConfig, printerConfig, administrativeConfig, finishesConfig);
-
 
         [totalFilamentCost,
             totalEnergyCost,
@@ -114,25 +143,33 @@ export const DataFlatListChange = (LineData, ObjectData, ObjectReducers, screenP
             totalROICost,
             totalValuePrint, valuePrintLine] = addTotal(ObjectData, filamentCost, energyCost, repairCost, failureCost, finishesCost, depreciationCost, administrationCost, ROICost, valuePrintLine)
 
-            
+
 
     }
 
     else if (type === 'delete') {
-        
-        if(LineData.length === 0){
+
+        if (LineData.length === 0) {
             return dispatch => {
                 dispatch(
                     {
                         type: ERROR_DATA,
                         payload: screenProps.t('error:noLine')
                     }
-                    );
+                );
 
             }
-            
-        }
 
+        }
+        if (LineData.length === 1) {
+            return dispatch => {
+                dispatch({
+                    type: '',
+                    payload: ClearDataFlatList(ObjectData,ObjectReducers)
+                }                        
+                )
+            }
+        }else
         let { filamentUsageLine,
             hourPrintLine,
             minutePrintLine,
@@ -152,8 +189,6 @@ export const DataFlatListChange = (LineData, ObjectData, ObjectReducers, screenP
             totalAdministrationCost,
             totalROICost,
             totalValuePrint] = deleteTotal(ObjectData, filamentCost, energyCost, repairCost, failureCost, finishesCost, depreciationCost, administrationCost, ROICost, filamentUsageLine, hourPrintLine, minutePrintLine, valuePrintLine)
-
-            console.log(totalFilamentUsage)
     }
 
     return dispatch => {
@@ -162,7 +197,7 @@ export const DataFlatListChange = (LineData, ObjectData, ObjectReducers, screenP
                 {
                     type: ADD_DATA,
                     payload: { filamentUsageLine: filamentUsage, hourPrintLine: hourPrint, minutePrintLine: minutePrint, valuePrintLine: valuePrintLine }
-                }            
+                }
             );
             dispatch({
                 type: FILAMENT_USAGE,

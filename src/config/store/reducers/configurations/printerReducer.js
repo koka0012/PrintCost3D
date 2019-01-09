@@ -10,14 +10,14 @@ import {
 } from '../../types/configurations/printerTypes'
 
 const INITIAL_STATE = {
-    wattsUsage: '300',
-    costKWh: '0.5',
-    lifeSpan: 72,
-    printerValue: '1950',
+    wattsUsage: '',
+    costKWh: '',
+    lifeSpan: 3,
+    printerValue: '',
     repairRate: '0.5',
-    returnInvestiment: 24,
-    hourPerDay: '18',
-    dayPerMonth: '30',
+    returnInvestiment: 3,
+    hourPerDay: '',
+    dayPerMonth: '',
 };
 
 export default filamentReducer = (state = INITIAL_STATE, action) => {

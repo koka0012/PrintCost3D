@@ -41,7 +41,7 @@ let t = screenProps.t;
                 payload: t('error:addTime')
             })
         }
-    }
+    } 
 }
 
 export const calculateAllPrice = (filamentUsage, hourPrint, minutePrint, ObjectData, filamentConfig, printerConfig, administrativeConfig, finishesConfig) => {

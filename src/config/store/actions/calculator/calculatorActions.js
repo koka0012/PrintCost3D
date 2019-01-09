@@ -73,14 +73,14 @@ export const FinishesCost = (primerCost, inkCost, varnishCost, laborCost, otherC
 Função para realizar o calculo de depreciação da impressora
 */
 export const DepreciationCost = (printerCost, lifeSpan, hour, minute) => {
-        let depreciationHour = (((+printerCost / (+lifeSpan / 12)) / 365) / 24 / 60) * (+hour * 60 + +minute);
+        let depreciationHour = (+printerCost / (+lifeSpan * 43200)) * (+hour * 60 + +minute);
         return depreciationHour;
 }
 
 export const AdministrativeCost = (administrativeCost, internetCost, modelingCost, phoneCost, taxesCost, otherCost,  hour, minute) => {
         let totalAdministrationCost = (+administrativeCost + +internetCost + +modelingCost + +phoneCost + +taxesCost + +otherCost);
 
-        totalAdministrationCost = (totalAdministrationCost / 30 / 24 / 60) * (+hour * 60 + +minute)
+        totalAdministrationCost = (totalAdministrationCost / 42300) * (+hour * 60 + +minute)
 
         return totalAdministrationCost;
 }

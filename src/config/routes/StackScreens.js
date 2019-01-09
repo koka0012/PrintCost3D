@@ -10,7 +10,7 @@ import tabBarConfig from './tabBarConfig';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons'
 import { metrics, colors } from '../../styles';
 
-import { SaveConfig } from '../util/saveConfig';
+import { SaveConfig } from '../util/generalConfig';
 
 const CalcStack = createStackNavigator({
     CalcHomeScreen: {

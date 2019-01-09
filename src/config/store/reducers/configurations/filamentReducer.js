@@ -6,11 +6,10 @@ import {
 } from '../../types/configurations/filamentTypes'
 
 const INITIAL_STATE = {
-    pricePound: '130',
+    pricePound: '',
     diameterFilament: 1.75,
     failureRate: 0.1,
     typeFilament: 'abs',
-
 };
 
 export default filamentReducer = (state = INITIAL_STATE, action) => {

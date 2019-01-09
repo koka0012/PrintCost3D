@@ -18,7 +18,7 @@ export default tabBarConfig = createMaterialTopTabNavigator({
     }
 },
 {
-    initialRouteName: 'AdministrativeScreen',
+    initialRouteName: 'FilamentScreen',
     swipeEnabled: true, 
     animationEnabled: true,
     tabBarOptions:{

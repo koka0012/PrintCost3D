@@ -9,7 +9,7 @@ import en from './en-US.json';
 import pt from './pt-BR.json';
 
 const STORAGE_KEY = '@APP:languageCode'
-
+ 
 const languageDetector = {
     init: Function.prototype,
     type: 'languageDetector',
