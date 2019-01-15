@@ -1,9 +1,17 @@
 # Print Cost 3D
 Este é o Print Cost 3D, o aplicativo para realizar calculos de impressões 3D com o máximo de precisão possivel, nele você poderá calcular os custos com filamentos, energia, acabamento, retorno de investimento, entre outros.
 
-- *Versão: 1.1.1*
+## Imagens do aplicativo
 
-## Funções
+![](https://github.com/salomaoluiz/PrintCost3D/blob/master/src/assets/Tela_Inicial.jpeg#L5)
+![](https://github.com/salomaoluiz/PrintCost3D/blob/master/src/assets/Tela_Inicial_2.jpeg#L5)
+![](https://github.com/salomaoluiz/PrintCost3D/blob/master/src/assets/Tela_Inicial_2.jpeg#L5)
+![](https://github.com/salomaoluiz/PrintCost3D/blob/master/src/assets/Configurações_de_Filamento.jpeg#L7)
+![](https://github.com/salomaoluiz/PrintCost3D/blob/master/src/assets/Configurações_da_Impressora.jpeg#L8)
+
+
+
+## Funções da versão v1.0
 - Calcula custos de Impressora 3D
 
 ## Implementações e Correções da Versão v1.1
