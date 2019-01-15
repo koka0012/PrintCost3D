@@ -3,11 +3,11 @@ Este é o Print Cost 3D, o aplicativo para realizar calculos de impressões 3D c
 
 ## Imagens do aplicativo
 
-![](https://github.com/salomaoluiz/PrintCost3D/blob/master/src/assets/Tela_Inicial.jpeg#L5)
-![](https://github.com/salomaoluiz/PrintCost3D/blob/master/src/assets/Tela_Inicial_2.jpeg#L5)
-![](https://github.com/salomaoluiz/PrintCost3D/blob/master/src/assets/Tela_Inicial_2.jpeg#L5)
-![](https://github.com/salomaoluiz/PrintCost3D/blob/master/src/assets/Configurações_de_Filamento.jpeg#L7)
-![](https://github.com/salomaoluiz/PrintCost3D/blob/master/src/assets/Configurações_da_Impressora.jpeg#L8)
+![](https://github.com/salomaoluiz/PrintCost3D/blob/develop/src/assets/Tela_Inicial.jpeg)
+![](https://github.com/salomaoluiz/PrintCost3D/blob/develop/src/assets/Tela_Inicial_2.jpeg)
+![](https://github.com/salomaoluiz/PrintCost3D/blob/develop/src/assets/Tela_de_Detalhes.jpeg)
+![](https://github.com/salomaoluiz/PrintCost3D/blob/develop/src/assets/Configura%C3%A7%C3%B5es_de_Filamento.jpeg)
+![](https://github.com/salomaoluiz/PrintCost3D/blob/develop/src/assets/Configura%C3%A7%C3%B5es_da_Impressora.jpeg)
 
 
 
